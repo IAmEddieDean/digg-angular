@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('digg')
 .factory('User', function($rootScope, $http, nodeUrl){
 
   function User(){
@@ -9,7 +9,12 @@ angular.module('poseidon')
   User.initialize = function(){
     return $http.post(nodeUrl + '/users');
   };
-
+  User.save = function(user){
+    return $http.put(nodeUrl + '/users/' + $rootScope.activeUser.mongoId, user);
+  };
+  User.getProfile = function(){
+    return $http.get(nodeUrl + '/users/' + $rootScope.activeUser.mongoId);
+  };
   User.oauth = function(provider){
     return $rootScope.afAuth.$authWithOAuthPopup(provider);
   };

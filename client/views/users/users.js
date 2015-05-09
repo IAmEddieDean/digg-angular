@@ -1,8 +1,14 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('digg')
 .controller('UsersCtrl', function($scope, $state, $window, User){
   $scope.name = $state.current.name;
+  
+
+  angular.element('#photo').change(function() {
+      alert('changed!');
+  });
+
 
   $scope.oauth = function(provider){
     User.oauth(provider);

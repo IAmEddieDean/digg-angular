@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('digg')
 .controller('NavCtrl', function($rootScope, $scope, $state, $firebaseObject, $http, User){
 
   $scope.afAuth.$onAuth(function(data){

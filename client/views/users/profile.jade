@@ -1,0 +1,29 @@
+h3 PROFILE
+
+.row
+  .col-xs-4
+    form(name='profileForm', novalidate)
+      .form-group
+        label(for='email') Email
+        input.form-control#email(type='email', name='email', ng-model='user.email')
+      .form-group
+        label(for='handle') Handle
+        input.form-control#handle(type='text', name='handle', ng-model='user.handle')
+      .form-group
+        label(for='avatar') Avatar
+        input.form-control#avatar(type='text' name='avatar', ng-model='avatar')
+      .form-group
+        label(for='photo') Photo
+        input.form-control#photo(type='file', name='photo')
+      .form-group
+        button.btn.btn-default(ng-click='previewFile()') Add Photo
+      .form-group
+        button.btn.btn-primary(ng-hide='isEdit' ng-click='submit(user)') Save Profile
+      .form-group
+        button.btn.btn-primary(ng-show='isEdit' ng-click='submit(user)') Save Edit
+  .col-xs-4.col-xs-offset-1
+    form
+      .form-group
+        img#profilePic(ng-src='{{user.avatar}}')
+      .form-group
+        img#profilePic(ng-src='{{user.photo}}')
